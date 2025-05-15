@@ -27,6 +27,17 @@ async function initDB() {
       );
     `);
 
+    // Вставляем базовые роли, если их нет
+    await db.query(`
+      INSERT INTO roles (name)
+      SELECT 'Admin' WHERE NOT EXISTS (SELECT 1 FROM roles WHERE name = 'Admin');
+    `);
+
+    await db.query(`
+      INSERT INTO roles (name)
+      SELECT 'User' WHERE NOT EXISTS (SELECT 1 FROM roles WHERE name = 'User');
+    `);
+
     console.log("Tables created or verified");
   } catch (error) {
     console.error("Error creating tables:", error);
