@@ -14,6 +14,10 @@
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
-    rejectUnauthorized: false,  // Обычно для Render SSL нужен
+    rejectUnauthorized: false, // для Render нужно
   },
 });
+
+module.exports = {
+  query: (text, params) => pool.query(text, params),
+};
