@@ -12,7 +12,7 @@
 // };
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: 'postgresql://workshop_test_user:u3c8WNyzX1gEO01Fmjx1upkfMHozVkP2@dpg-d0iuso3e5dus73a0a2t0-a:5432/workshop_test',
   ssl: {
     rejectUnauthorized: false, // для Render нужно
   },
