@@ -1,4 +1,5 @@
-const apiBase = "http://localhost:5000/api";
+//const apiBase = "http://localhost:5000/api";
+const apiBase = "/api";
 
 let roles = [];
 
