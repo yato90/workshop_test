@@ -3,7 +3,9 @@ const cors = require("cors");
 const app = express();
 const initDB = require("./initDB");
 
-initDB();
+initDB().catch((err) => {
+  console.error("initDB failed:", err);
+});
 
 require("dotenv").config();
 const port = process.env.PORT || 5000;
