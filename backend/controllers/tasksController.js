@@ -5,11 +5,6 @@ exports.getAll = async (req, res) => {
   res.json(tasks);
 };
 
-exports.getById = async (req, res) => {
-  const task = await Task.getById(req.params.id);
-  task ? res.json(task) : res.status(404).send("Not found");
-};
-
 exports.create = async (req, res) => {
   await Task.create(req.body);
   res.status(201).send("Created");
